@@ -1,0 +1,59 @@
+<!-- Content Header (Page header) -->
+
+<section class="content-header">
+	<h1>
+		Branch <small>{{PageTitle}}</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a class="homeClick" data-ng-click="goHome();"><i
+				class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Branch</li>
+	</ol>
+</section>
+<!-- Main content -->
+<div class="row" style="margin-top: -10px;">
+		<div class="col-xs-12">
+			<div data-ng-include="messagePageLocation"></div>
+		</div>
+	</div>
+<section class="content">
+						
+						<div class="box box-primary" style="border-top-color: #8574AD;">
+                                
+                                <!-- form start -->
+                                <form role="form">
+                                    <div class="box-body">
+                                       
+                                      
+                                      
+            	 				 <div class="row">
+											<div class="col-lg-4">
+								   				<div class="form-group" >
+								   					<label class="control-label">Branch Name</label>
+									        		<input type="text" id="name" class="form-control" name="branch.name"  data-ng-model="branch.name" required placeholder="Name" />
+									        		
+								    			</div>
+								    			
+											</div>
+								</div>
+								<div class="row">
+										<div class="col-lg-4">
+								   				<div class="form-group" >
+										   					<label class="control-label">Address</label>
+											        		<textarea type="text" id="description" class="form-control"  name="branch.location" data-ng-model="branch.location" required placeholder="Address" />
+											        		
+										    			</div>
+				    			
+											</div>
+								</div>
+			
+                                    </div><!-- /.box-body -->
+
+                                    <div class="box-footer">
+                                        <button class="btn btn-primary" title="Submit" ng-click="saveBranch(branch)">{{buttonText}}</button>&nbsp&nbsp
+	      								<button class="btn btn-default" title="Reset" type="reset"  ng-click="reset()">Reset</button>&nbsp;
+	      								
+                                    </div>
+                                </form>
+                            </div><!-- /.box -->
+</section>

@@ -1,0 +1,88 @@
+
+<div class="modal-header" style="background: #EDEDED;">
+<span ng-click="cancel()" class="glyphicon glyphicon-remove-circle pull-right"></i></span>
+	<h3 class="modal-title ng-binding">
+		Create New Entry
+	</h3>
+	
+
+</div>
+
+<div class="modal-body" style="background:#F5F5F5;">
+  <form id="loginForm" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Date</label>
+                        <div class="col-sm-5">
+                          <div>
+      						<input id="datepicker" type="text" data-ng-datepicker data-ng-options="datepickerOptions" data-ng-model="date">
+      							
+    							</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Project Name</label>
+                        <div class="col-sm-5">
+							<select class="form-control" name="genre">
+							<option value="">Choose a genre</option>
+							<option value="action">Action</option>
+							<option value="comedy">Comedy</option>
+							<option value="horror">Horror</option>
+							<option value="romance">Romance</option>
+							</select>
+           
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Project Type</label>
+                        <div class="col-sm-5">
+							<select class="form-control" name="genre">
+							<option value="">Choose a genre</option>
+							<option value="action">Action</option>
+							<option value="comedy">Comedy</option>
+							<option value="horror">Horror</option>
+							<option value="romance">Romance</option>
+							</select>
+           
+                        </div>
+                    </div>
+					<div class="form-group">
+                     <label class="col-sm-3 control-label">Project Description</label>
+                     <div class="col-sm-5">
+                       <textarea class="form-control" name="review" rows="3" cols="5"></textarea>
+                       </div>
+                    </div>
+					
+					<div class="form-group">
+                        <label class="col-sm-3 control-label">Start Time</label>
+                        <div class="col-sm-5">
+                          <div>
+      						<input id="datepicker" type="text" data-ng-datepicker data-ng-options="datepickerOptions" data-ng-model="date">
+      							
+    							</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">End Time</label>
+                        <div class="col-sm-5">
+                          <div>
+      						<input id="datepicker" type="text" data-ng-datepicker data-ng-options="datepickerOptions" data-ng-model="date">
+      							
+    							</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-5 col-sm-offset-3">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                </form>
+  <!-- <span>Date</span> &nbsp;<input id="datepicker" type="text" data-ng-datepicker data-ng-options="datepickerOptions" data-ng-model="date">
+   <span>Project Name</span>
+   <select>
+   <option>Aaaaaaaaaa</option>
+   <option>Baaaaaaaaaa</option>
+   </select>-->
+ 
+</div>
+

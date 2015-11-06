@@ -1,0 +1,129 @@
+
+<!-- 
+<section class="ptrn_a grdnt_a">
+	<div class="containerLogin">
+            <div class="row1">
+                <div class="eight columns centered">
+                    
+                </div>
+            </div>
+			<div class="row1">
+				<div class="eight columns centered">
+					<div class="login_box">
+						<div class="lb_content">
+                          <div class="login_logo"><img src="img/logo20.png" alt="" /> 
+                          <span  style="font-size:18px;color:skyblue">Charisma</span>
+                          </div>
+							<div class="cf">
+								<h2 class="lb_ribbon lb_blue"><span>Login to your account</span><span style="display:none">New password</span></h2>
+								<a href="#" class="right small sl_link">
+									<span>Forgot your password?</span>
+									<span style="display:none">Back to login form</span>
+								</a>
+							</div>
+							<div class="row1 m_cont">
+								<div class="eight columns centered">
+									<div class="l_pane">
+										<form class="nice" id="l_form">
+											<div class="sepH_c">
+												<div class="elVal">
+													<label for="username">Username</label>
+													<input type="text" data-ng-model="user.loginid" name="userid"  placeholder="User ID" class="oversize expand input-text" autofocus="autofocus"  data-ng-blur = "checkloginid(user.loginid)" />
+													<span id="validationloginid" class="validaTionStyle" style="display: none" data-i18n="val_input_login_id"></span>
+			                                        <span id="validationinvalidloginid" class="validaTionStyle" style="display: none" data-i18n="val_input_invalid_login_id"></span>
+												</div>
+												<div class="elVal">
+													<label for="password">Password</label>
+													<input type="password" data-ng-model="user.password" placeholder="Password"  id="password" name="password" class="oversize expand input-text" data-ng-blur = "checkloginpwd(user.password)"/>
+													<span id="validationloginpwd" class="validaTionStyle" style="display: none" data-i18n="val_input_login_password"></span>
+			            	                        <span id="validationinvalidpassword" class="validaTionStyle" style="display: none" data-i18n="val_input_invalid_password"></span>
+												</div>
+											</div>
+											<div class="cf">
+									            <button class="btn btn-primary" style="float:right" ng-click="signIn(user)">Sign in</button> 
+											</div>
+										</form>
+									</div>
+									<div class="l_pane" style="display:none">
+										<form  class="nice" id="rp_form">
+											<div class="sepH_c">
+												<p class="sepH_b">Please enter your email address.</p>
+												<div class="elVal">
+													<label for="upname">E-mail:</label>
+													<input type="text" id="upname" name="upname" class="oversize expand input-text" data-ng-blur = "checkloginid(user.loginid)" />
+													<span id="validationloginid" class="validaTionStyle" style="display: none" data-i18n="val_input_login_id"></span>
+			                                        <span id="validationinvalidloginid" class="validaTionStyle" style="display: none" data-i18n="val_input_invalid_login_id"></span>
+												</div>
+											</div>
+											<div class="cf">
+												<button class="btn btn-sm" style="float:right" ng-click="">Get New Password</button> 
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+		<div style="width:100%;height:35px;background:#DBF2FD">
+		<span style="margin-bottom:5px;float:right;margin-right:10px;margin-top:10px;color:#8C8CA0">Copyright &copy; 2014 nazmulitp@gmail.com.All Rights Reserved</span>
+		</div>
+			
+</section>
+<script>
+			$(document).ready(function() {
+				$(".sl_link").click(function(event){
+					$('.l_pane').slideToggle('normal').toggleClass('dn');
+					$('.sl_link,.lb_ribbon').children('span').toggle();
+					event.preventDefault();
+				});
+			});
+		</script>
+ -->
+ <section class="login-bg">
+ <div class="nav-wrapper-login " >
+    <div class="nav-container-login width-90">
+      <form ng-submit="login()" class="right">
+        <ul class="navbar-login left">
+          <li class="floatLeft">
+            <input type="text" class="formInputs-login login-nav-input fullname" placeholder="Riddle email address" data-ng-model="user.loginid">
+          </li>
+          <li class="floatLeft" style="position:relative;">
+              <input type="password" class="formInputs-login login-nav-input fullname" placeholder="password" ng-model="user.password">
+              <span class="passrow-icon"></span>
+          </li>
+        </ul>
+        <input type="submit" id="login-submit" class="button-login cGreenBtn-w login-nav-btn left"  value="Sign In">
+      </form>
+    </div>
+  </div>
+  <div class="clearFix"></div>
+  <div class="sign-up-wrapper">
+    <div id="site-logos">
+    <p><img src="assets/images/eagle-icon.png" width="60"></p>
+    <p><img src="assets/images/eaglenation.png" width="210"></p>
+    </div>
+    <p class="sign-up-p2">Connect with peers and interest groups on campus, and stay in the know about what’s happening at Riddle.</p>
+    <form class="signup-form">
+      <div class="forms-control">
+        <input type="text" class="formInputs-login signup-inputs" placeholder="Full name">
+        <input type="text" class="formInputs-login signup-inputs" placeholder="Riddle email address">
+        <input type="text" class="formInputs-login signup-inputs" placeholder="Password" style="border:0 none">
+      </div>
+      <input type="submit" class="button-login blueBtn-send signup-btn" ng-click="signIn(user)" value="Sign up">
+    </form>
+  </div>
+  <div class="signup-footer-new">
+      <p><span>About</span> <span>Contact</span> <span>Privacy</span></p>
+  </div>
+ </section>
+ <script>
+$(".navbar-login").hide();
+$('#login-submit').click(function() {
+  $('.navbar-login').show("normal", "swing");
+});
+</script>
+ 

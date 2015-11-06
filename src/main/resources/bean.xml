@@ -1,0 +1,68 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="springTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+  		<property name="dataSource" 					ref="dataSource"></property>
+	</bean>
+   	
+    <!-- Dao Classes -->
+    <bean id="simpleJdbcDao" class="com.secl.metrica.db.dao.impl.SimpleJdbcDaoImpl">
+        <property name="dataSource" 					ref="dataSource" />
+    </bean>
+    
+    <bean id="springJdbcDao" class="com.secl.metrica.db.dao.impl.SpringJdbcDaoImpl">
+        <property name="dataSource" 					ref="dataSource" />
+        <property name="transactionManager" 			ref="springTransactionManager"></property>
+    </bean>
+            
+	<bean id="hibernateDao" class="com.secl.metrica.db.dao.impl.HibernateDaoImpl">
+		<property name="sessionFactory" 				ref="sessionFactory" />
+	</bean>
+	
+   	
+   	<!-- Utils -->
+	<bean id="dateUtil" class="com.secl.metrica.utils.DateUtil" />
+	<bean id="idGenerator" class="com.secl.metrica.manager.impl.IDGeneratorImpl" />
+	<bean id="queryManager" class="com.secl.metrica.manager.impl.PostgreSQLQueryManagerImpl" />
+	<bean id="sessionManager" class="com.secl.metrica.manager.impl.SessionManagerImpl" />
+	
+	<!-- Manager Classes -->
+    <bean id="manager" class="com.secl.metrica.manager.impl.ManagerImpl">
+        <!-- <property name="dataSource" 					ref="dataSource"/> -->
+        <property name="sessionManager" 				ref="sessionManager"/>
+        <property name="queryManager" 					ref="queryManager"/>
+        <property name="idGenerator" 					ref="idGenerator"/>
+        <property name="hibernateDao" 					ref="hibernateDao"/>
+        <property name="springJdbcDao"                  ref="springJdbcDao" />
+        <property name="simpleJdbcDao"                  ref="simpleJdbcDao" />
+    </bean>
+    
+	<bean id="dashboardManager" class="com.secl.metrica.manager.impl.DashboardImpl" parent="manager">
+		<!-- <property name="viewGroup" 						value="${couch.viewgroup}" />
+		<property name="viewName" 						value="${couch.viewname}" />  -->   
+    </bean>
+    <bean id="loginManager" class="com.secl.metrica.manager.impl.LoginManagerImpl" parent="manager" />
+    <bean id="branchManager" class="com.secl.metrica.manager.impl.BranchManagerImpl" parent="manager" />
+    
+      
+    <!-- <bean id="connectionManager" class="com.secl.metrica.utils.ConnectionManager" />  -->
+    	
+    
+	<!-- Service -->
+	<bean id="loginService" class="com.secl.metrica.rest.service.LoginService">
+		  <property name="loginManager" 				ref="loginManager"/>
+		  <property name="sessionManager" 				ref="sessionManager"/>  
+	</bean>
+	
+     <bean id="dashboardService" class="com.secl.metrica.rest.service.DashboardService">
+		  <property name="dashboardManager" 			ref="dashboardManager"/>
+	</bean>
+	<bean id="branchService" class="com.secl.metrica.rest.service.BranchService">
+		  <property name="branchManager" 	        	ref="branchManager"/>
+		  <property name="sessionManager" 				ref="sessionManager"/>
+	</bean>
+		
+</beans>
+

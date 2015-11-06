@@ -1,0 +1,14 @@
+
+<div class="modal-header modal-header-confirm">
+	<h4 class="modal-title ng-binding">
+		<span class="glyphicon glyphicon-check"></span> Delete
+	</h4>
+</div>
+
+<div class="modal-body">
+  <h4>Are You Sure To Delete<b>{{partner.name}}</b> ?</h4>
+</div>
+ <div class="modal-footer">
+		<button class="btn btn-info" ng-click="cancel()"><i class="fa fa-times"></i>&nbsp; No</button>
+		<button type="submit" class="btn btn-danger" ng-click="changeStatus(employee)"><i class="fa fa-trash-o"></i>&nbsp;Yes</button>
+</div>

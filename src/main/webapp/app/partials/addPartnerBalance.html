@@ -1,0 +1,17 @@
+
+ <form>
+	<div class="modal-header" id="top">
+		<h3>Add Balance for {{partner.partnerName}}</h3>
+	</div>
+
+	<div class="modal-body">
+		<label class="lbl">Amount</label> 
+		<input type="hidden" data-ng-model="partner.partnerID"  />
+	   	<input class="form-control" type="text" value="" placeholder="Enter Balance" data-ng-model="partner.amount" decimal-mask />
+		
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+		<button type="submit" class="btn btn-primary" ng-click="submit()">Submit</button>
+	</div>
+</form>

@@ -1,0 +1,97 @@
+<!-- Content Header (Page header) -->
+
+<section class="content-header">
+    <h1>
+        Branches <small>  list of Branches</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a class="homeClick" data-ng-click="goHome();"><i class="fa fa-dashboard"></i> Home</a>
+        </li>
+        <li class="active">Branches</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+<div class="row">                      
+ <div class="box-body">
+    <div class="clientListNav clientNav ">
+		<div class="col-md-6">
+	       	<ul class="nav nav-tabs">
+	            
+	            <li>
+	            <a  data-ng-click="showAddNewBranch()" style="cursor: pointer;"><i class="fa fa-plus"></i> Add Branch </a>
+	            </li>
+	        </ul>
+		 </div> 
+		 <div class="col-md-3">
+				
+		 </div>
+   		 <div class="col-md-1" >
+			 <form class="form-inline" role="form" data-placement='bottom'  data-toggle="tooltip"  title="Select iteams per Page">
+		   		<div class="clientCount">
+			         <select class="form-control" data-ng-model="pageSize">
+			            <option>6</option>
+			         	<option>9</option>
+			         	<option>10</option>
+			         	<option>20</option>
+			         	<option>30</option>
+			         </select>
+		    	</div>
+		     </form>   
+		 </div>
+	   <div class="col-md-2">
+		 <div>
+	        <input type="text" name="table_search" class="form-control input-sm clientSearch" placeholder= "Search" data-ng-model="searchText"/>
+	     </div>
+	  </div>
+    </div> 
+   </div>                             
+ </div>
+	 
+	            	
+	                <div class="tab-pane">
+	                
+	                	<div class="row" style="margin-top: 20px;">
+					  		<div class="col-xs-12">
+					   			<div data-ng-include="messagePageLocation"></div>
+					  		</div>
+					 	</div>
+	                 <div class="box box-primary">
+                         <div class="box-body">
+                           <section id="list-table">
+				            <div class="box-body table-responsive">
+					 			
+					 			<table data-ng-table="tableParams" class="table table-condensed table-hover">
+							       <tbody >
+							        <tr ng-repeat="branch in $data">
+											<td data-title="'Branch Name'" sortable="'branchName'" filter="{ 'branchName': 'text' }">{{branch.name}}</td>
+											<td data-title="'Address'" sortable="'address'" filter="{ 'address': 'text' }">{{branch.location}}</td>
+											 <td data-title="'Action'">
+														 <a title="Edit Branch"data-ng-click="editBranchData(branch)" style="cursor:pointer"><i class="fa fa-pencil-square-o"></i>Edit</a>
+											</td>
+				
+									</tr>
+							       </tbody>
+						        </table>
+				            </div>
+	                     </section>
+                       </div>          
+                   </div>
+	            
+
+               <div class="row show-hide-animation" data-ng-show="milestone.length == 0">
+				 <div class="span12">
+					<h4>No Branch Found</h4>
+				</div>
+	           </div>
+			    <div class="row show-hide-animation">
+					<div class="span12">
+						<pagination data-ng-model="currentPage" data-total-items="filteredTotalRecords" 
+						data-boundary-links="true" data-max-size="itemsPerPage" data-items-per-page="pageSize"></pagination>
+						<h5>{{ pageItemText }}</h5>
+					</div>
+				</div>   
+	        </div>
+	       
+</section>

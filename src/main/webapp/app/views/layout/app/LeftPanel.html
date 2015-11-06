@@ -1,0 +1,158 @@
+
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar" data-ng-controller="appLeftMenuController"
+	ng-class="{true:'isMobile', false:'isPc'}[true==isMobile]">
+	<!-- Sidebar user panel -->
+	<div class="user-panel">
+		<div class="pull-left image">
+			<img src="{{loggedinUserInfo.imagepath}}" class="img-circle"
+				alt="User Image">
+		</div>
+		<div class="pull-left info">
+			<p>Hello, {{loggedinUserInfo.loginid}}</p>
+			<a><i class="fa fa-circle text-success"></i> Online</a>
+		</div>
+	</div>
+	<!-- sidebar menu: : style can be found in sidebar.less -->
+	<ul class="sidebar-menu" id="side-menu">
+	
+	<li data-ng-repeat="item in menu" data-ng-class="{ treeview : item.child.length > 0}" id="{{item.id}}" >
+    		<a class="link-pointer" data-ng-click="clickTopItem(item)">
+                <i class="{{item.class}}"></i>
+                <span>{{item.text}}</span>
+                <i class="fa pull-right fa-angle-left" data-ng-if="item.child.length > 0"></i>
+            </a>
+            <ul class="treeview-menu" data-ng-if="item.child.length > 0">
+                <li data-ng-repeat="childItem in item.child" style="margin-left: 10px; cursor: pointer;" data-ng-click="clickLeftMenu(childItem.url)" id="{{childItem.id}}">
+                	<a>
+                		<i class="{{childItem.class}}"></i><span class="text">{{childItem.text}}</span>
+                	</a>
+                </li>
+	        </ul>
+	        
+    	</li>
+
+		<!-- <li ng-class='{active: "Dashboard_TopMenu" == currLeftMenuId}' ng-click="clickLeftMenu('dashboard')">
+	    	<a>
+	        	<i class="fa fa-dashboard"></i> <span>Dashboard</span>
+	        </a>
+	    </li>
+	    
+	    <li>
+           <a><i class="fa fa-bar-chart-o fa-fw"></i> My Metrica<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level  sub-menu">
+                <li>
+                    <a  data-ng-click="clickLeftMenu('timesheet')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Timesheet</a>
+                </li>
+                <li>
+                    <a data-ng-click="showProfile('EMP-0001')" class="link-pointer"><i class="fa fa-angle-double-right"></i> 	Profile</a>
+                </li>
+             </ul>
+        </li>
+        
+        <li class="treeview">
+           <a><i class="fa fa-users"></i> People<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level sub-menu">
+                <li>
+                    <a data-ng-click="clickLeftMenu('underconstruction')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Organization</a>
+                </li>
+                <li>
+                    <a ng-click="clickLeftMenu('Employees')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Employee</a>
+                </li>
+                <li>
+                    <a data-ng-click="clickLeftMenu('underconstruction')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Human Capital</a>
+                </li>
+                <li>
+                    <a data-ng-click="clickLeftMenu('underconstruction')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Resource Management</a>
+                </li>
+                <li>
+                    <a data-ng-click="clickLeftMenu('resourceManagement')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Leave Management</a>
+                </li>
+             </ul>
+        </li>
+        
+         <li class="treeview">
+           <a><i class="fa fa-file-text"></i> Project<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level sub-menu">
+                <li>
+                    <a data-ng-click="clickLeftMenu('projectlist')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Projects</a>
+                </li>
+                <li>
+                    <a data-ng-click="clickLeftMenu('underconstruction')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Planning</a>
+                </li>
+                <li>
+                    <a data-ng-click="clickLeftMenu('underconstruction')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Monitoring</a>
+                </li>
+                <li>
+                    <a data-ng-click="clickLeftMenu('clientlist')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Clients</a>
+                </li>
+                
+             </ul>
+        </li>
+        <li class="treeview">
+           <a><i class="fa fa-th"></i> Process<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level sub-menu">
+                <li>
+                    <a data-ng-click="clickLeftMenu('underconstruction')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Review</a>
+                </li>
+                <li>
+                    <a data-ng-click="clickLeftMenu('checklist')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Audit</a>
+                </li>
+               
+             </ul>
+        </li>
+        <li class="treeview">
+           <a><i class="fa fa-users"></i> Metrics<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level sub-menu">
+                <li>
+                    <a data-ng-click="clickLeftMenu('underconstruction')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Productivity</a>
+                </li>
+                <li>
+                    <a data-ng-click="clickLeftMenu('underconstruction')"  class="link-pointer"><i class="fa fa-angle-double-right"></i> Compliance</a>
+                </li>
+               
+             </ul>
+        </li>
+
+
+
+  -->
+
+	<!--	
+        <li ng-click="clickLeftMenu('Employees')">
+            <a>
+                <i class="fa fa-users"></i> <span>Employees</span>
+            </a>
+        </li>
+        <li ng-click="clickLeftMenu('projectlist')">
+            <a>
+                <i class="fa fa-bar-chart-o"></i> <span>Projects</span>
+            </a>
+        </li>
+
+      <li ng-click="clickLeftMenu('ListEmployees')">
+            <a>
+                <i class="fa fa-users"></i> <span>All Employees</span>
+            </a>
+        </li> 
+    
+         <li ng-click="clickLeftMenu('timesheet')">
+            <a>
+                <i class="fa fa-calendar"></i> <span>Time-Sheet</span>
+            </a>
+        </li>  -->
+
+	</ul>
+</section>
+<!-- /.sidebar -->
+
+
+<style type="text/css">
+.isMobile {
+	margin-top: 0px;
+}
+
+.isPc {
+	margin-top: 50px;
+}
+</style>

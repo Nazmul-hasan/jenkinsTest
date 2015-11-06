@@ -1,0 +1,46 @@
+
+
+ <div class="logo">
+	 <a class="navbar-brand" href="index.html"> 
+	 <img alt="Charisma Logo" src="img/logo20.png" class="hidden-xs"/></a>
+	 <span class="">Charisma</span>
+  </div>               
+<nav class="navbar navbar-static-top" role="navigation" data-ng-controller="appHeaderController">
+	<!-- Sidebar toggle button-->
+	<button class="navbar-btn sidebar-toggle" id="slide" data-toggle="offcanvas" role="button" data-ng-click="collapseAppLeftMenu()"><!--   data-ng-click="collapseAppLeftMenu()"-->
+		<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+		<span class="icon-bar"></span> <span class="icon-bar"></span>
+	</button>
+	<div class="navbar-right">
+		<ul class="nav navbar-nav">
+			<!-- User Account: style can be found in dropdown.less -->
+			<li class="dropdown user user-menu">
+				<a href="#"class="dropdown-toggle" data-toggle="dropdown"> 
+					<i class="glyphicon glyphicon-user"></i> 
+					<span>{{loggedinUserInfo.name}}<i class="caret"></i></span>
+			   </a>
+				<ul class="dropdown-menu">
+					<!-- User image -->
+					<li class="user-header bg-light-blue"><img src="{{loggedinUserInfo.imagepath}}"
+						class="img-circle" alt="User Image">
+						<p>
+							{{loggedinUserInfo.name}}
+						</p></li>
+					<!-- Menu Footer-->
+					<li class="user-footer">
+						<div class="pull-left">
+							<a data-ng-click="showProfile(loggedinUserInfo.name)" class="btn btn-default btn-flat">Profile</a>
+						</div>
+						
+						<div class="pull-left" style="margin-left:2px;">
+							<a data-ng-click="showChangePasswordPage(loggedinUserInfo.employeeID)" class="btn btn-default btn-flat">Change Password</a>
+						</div>
+						
+						<div class="pull-right">
+							<a data-ng-click="signOut()" class="btn btn-default btn-flat">Sign out</a>
+						</div>
+					</li>
+				</ul></li>
+		</ul>
+	</div>
+</nav>

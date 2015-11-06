@@ -1,0 +1,20 @@
+
+
+<div class="modal-header modal-header-confirm">
+	<h4 class="modal-title ng-binding">
+		<span class="glyphicon glyphicon-question-sign"></span>{{modalOptions.headerText}}
+	</h4>
+</div>
+
+<div class="modal-body">
+  <h4> <label data-i18n="{{modalOptions.bodyText}}"></label>
+  <a data-ng-if="modalOptions.employee.employmentStatus=='I'" style="color:red"> Inactive <b style="color:green">to Active</b></a>
+  <a data-ng-if="modalOptions.employee.employmentStatus=='A'" style="color:green"> Active <b style="color:red">to Inactive</b> </a>
+  of<b> {{modalOptions.employee.name}}</b> ?</h4>
+  
+  
+</div>
+ <div class="modal-footer">
+		<button class="btn btn-deafult" ng-click="modalOptions.close()"><i class="fa fa-times"></i>&nbsp; {{modalOptions.closeButtonText}}</button>
+		<button type="submit" class="btn btn-warning" ng-click="modalOptions.ok()"><i class="glyphicon glyphicon-ok"></i>&nbsp;{{modalOptions.actionButtonText}}</button>
+</div>
