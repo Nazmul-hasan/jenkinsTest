@@ -13,7 +13,7 @@ apply plugin: 'maven'
 apply plugin: 'java' 
 apply plugin: 'war' 
 apply plugin: 'eclipse-wtp'
-apply plugin: 'spring-boot'
+//apply plugin: 'spring-boot'
 
 
 repositories {
