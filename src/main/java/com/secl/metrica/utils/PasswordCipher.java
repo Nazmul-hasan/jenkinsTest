@@ -1,4 +1,4 @@
-package com.secl.metrica.utils;
+package com.secl.cbrm.core.utils;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -18,7 +18,9 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
+
 
 public class PasswordCipher {
 	public static Cipher dcipher, ecipher;
@@ -72,7 +74,7 @@ public class PasswordCipher {
               // Encrypt
               byte[] enc = ecipher.doFinal(utf8);
               // Encode bytes to base64 to get a string
-              return new sun.misc.BASE64Encoder().encode(enc);
+              return Base64.encodeBase64String(enc);
 
        } catch (BadPaddingException e) {
        } catch (IllegalBlockSizeException e) {
@@ -114,7 +116,7 @@ public class PasswordCipher {
             	  logger.error("EXCEPTION: InvalidKeyException", e);
               }
               // Decode base64 to get bytes
-              byte[] dec = new sun.misc.BASE64Decoder().decodeBuffer(str);
+              byte[] dec = Base64.decodeBase64(str);
               // Decrypt
               byte[] utf8 = dcipher.doFinal(dec);
               // Decode using utf-8
